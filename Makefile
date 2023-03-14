@@ -1,9 +1,12 @@
 CC=gcc
-CFLAGS="-Wall"
+CFLAGS="-Wall -Werror"
 
-debug:clean
-	$(CC) $(CFLAGS) -g -o buutti main.c
-stable:clean
-	$(CC) $(CFLAGS) -o buutti main.c
+.PHONY: debug
+debug: Main.c
+	$(CC) $(CFLAGS) -g -o buutti Main.c
+.PHONY: stable
+stable: Main.c
+	$(CC) $(CFLAGS) -O3 -o buutti Main.c
+.PHONY: clean
 clean:
 	rm -vfr *~ buutti
