@@ -1,0 +1,4 @@
+[Project]
+Name=Buutti
+Manager=KDevCustomMakeManager
+VersionControl=kdevgit
