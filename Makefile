@@ -1,12 +1,13 @@
 CC=gcc
-CFLAGS="-Wall -Werror"
+CFLAGS=-Wall -Werror
+SOURCE_FILES=$(addprefix Src/, Main.c)
 
 .PHONY: debug
-debug: Main.c
-	$(CC) $(CFLAGS) -g -o buutti Main.c
+debug: $(SOURCE_FILES)
+	$(CC) $(CFLAGS) -g -o buutti $^
 .PHONY: stable
-stable: Main.c
-	$(CC) $(CFLAGS) -O3 -o buutti Main.c
+stable: $(SOURCE_FILES)
+	$(CC) $(CFLAGS) -O3 -o buutti $^
 .PHONY: clean
 clean:
 	rm -vfr *~ buutti
