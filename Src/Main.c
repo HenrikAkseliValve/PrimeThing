@@ -6,9 +6,23 @@
 < result.
 */
 #include <stdio.h>
-#include <stdlib.h>
+#include <stdint.h>
+#include <stdbool.h>
 
-int main() {
-    printf("Hello World!");
-    return 0;
+int main(){
+	puts("---PROGRAM STARTS---");
+
+	// Find smallest 10 digit prime.
+
+	// Find smallest 11 digit prime.
+
+	// Multiply.
+
+	// Take out the last 15 digits (meaning
+	// 15 lowest base 10 digits).
+
+	// Print the result.
+	printf("Answer %lu\n",0);
+
+	return 0;
 }
