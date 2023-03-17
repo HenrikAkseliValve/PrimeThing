@@ -24,9 +24,9 @@ static uint64_t isqrt(uint64_t num){
 	// Wikipedia example just calculates half of the initial value
 	// which is fast. Other one calculates ceil(2^(log2(n)/2)) which
 	// is the smallest power of two bigger than or equal to isqrt(S).
-	// With ceil(2^(log2(n)/2)) as initial estimate log2(log2(S)) loop
+	// With ceil(2^(log2(S)/2)) as initial estimate log2(log2(S)) loop
 	// iterations are performed. Wikipedia has example where half
-	// version needs 13 iterations for 2000000. The ceil(2^(log2(n)/2))
+	// version needs 13 iterations for 2000000. The ceil(2^(log2(S)/2))
 	// version needs 4.
 	//
 	// Calculation of 2^x is just bit-shifting operation on 0x1 so log2
