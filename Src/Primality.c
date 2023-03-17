@@ -89,8 +89,12 @@ static uint64_t isqrt(uint64_t num){
  * Function to test that given number is a prime.
 */
 bool isPrime(uint64_t num){
-	// Primality test implemented is trial division and deterministic Miller-Rabin for 64 bit unsigned integer.
-	// In octaves files threshold of >195e8 enables Miller-Rabin. This is 2-3 bits over 32 bit unsigned integer.
+	// Primality test implemented is trial division.
+	//
+	// TODO: Implement deterministic deterministic 64 bit Miller-Rabin as well for 64 bit unsigned
+	// integer. In octaves files threshold of >195e8 enables Miller-Rabin. This is 2-3 bits over
+	// 32 bit unsigned integer hence efficiently gains for 64 bit number.
+	//
 	// TODO: Investigate other methods like Baillie-PSW and APR-CL, and underline mathematical test them self.
 	//
 	// References:
@@ -98,8 +102,11 @@ bool isPrime(uint64_t num){
 
 	// The trial by division calculates isqrt and then checks every odd number between it and 3.
 	// It is guaranteed that isqrt is biggest number which could divisible with given number.
-	// If we check divisibility of 2 and 3 manually then next possible number is +6 from previous.
-	// This is because after 2 and 3 is check every prime is 6k±1. So start at 5 and +6. NOTE: CITETATION NEEDED!
+	// If we check divisibility of 2 and 3 manually then we can increment loop by 6 from previous.
+	// This is because after 2 and 3 is check every prime is 6k±1. For every number n is number k and
+	// r\in{1,2,3,4,5} such that n=6k+r. If r is 2 or 4 it is divisible by 2. If r is 3 it is
+	// divisible by 3. This leaves 1 and 5 and 5 is same us -1 so every prime greater then 3 has form
+	// 6k±1. So start at 5, check 5=6-1 and 7=6+1 and move iteration value to 11 and so on.
 	//
 	// Reference:
 	//  https://en.wikipedia.org/wiki/Primality_test
