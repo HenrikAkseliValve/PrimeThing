@@ -1,4 +1,5 @@
 CC=gcc
+CPP=g++
 CFLAGS=-Wall -Werror
 SOURCE_FILES=$(addprefix Src/, Main.c Primality.c)
 
@@ -11,3 +12,8 @@ stable: $(SOURCE_FILES)
 .PHONY: clean
 clean:
 	rm -vfr *~ buutti
+
+.PHONY: test
+test:/tmp/test
+/tmp/test:
+	$(CPP) $(CFLAGS) -g UnitTests/test_Primality.cpp Src/Primality.c -o/tmp/test -lCppUTest -lCppUTestExt
