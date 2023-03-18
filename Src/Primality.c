@@ -9,7 +9,7 @@
 /*
  * Calculate integer square root of 64 bit unsigned integer.
  * Outputs 64 bit number for consistent input output.
- * TODO: Move this it's own source file if too many other math operations pop up.
+ * NOTE: Move this it's own source file if too many other math operations pop up.
 */
 static uint64_t isqrt(uint64_t num){
 	// Using Heron's method to calculate isqrt(S).
@@ -91,11 +91,13 @@ static uint64_t isqrt(uint64_t num){
 bool isPrime(uint64_t num){
 	// Primality test implemented is trial division.
 	//
-	// TODO: Implement deterministic deterministic 64 bit Miller-Rabin as well for 64 bit unsigned
-	// integer. In octaves files threshold of >195e8 enables Miller-Rabin. This is 2-3 bits over
-	// 32 bit unsigned integer hence efficiently gains for 64 bit number.
+	// TODO: Implement deterministic 64 bit Miller-Rabin as well. In octaves files threshold of >195e8
+	// enables Miller-Rabin. This is 2-3 bits over 32 bit unsigned integer hence efficiently gains for
+	// 64 bit number.
 	//
-	// TODO: Investigate other methods like Baillie-PSW and APR-CL, and underline mathematical test them self.
+	// TODO: Investigate other methods like Baillie-PSW and APR-CL, and underline mathematical test them
+	//       self. Move trial by division to own function if Miller Rabin is implemented for the empirical
+	//       speed testing.
 	//
 	// References:
 	//   https://hg.octave.org/octave/file/tip/scripts/specfun/isprime.m (Retrieved 14.03.2023).
